@@ -60,10 +60,14 @@ while(True):
     # while fish is not caught yet or under specified timeout, keep looking for the ! sign
     while (pos_fish == None) and (time.time() < (timeout_start+timeout)):
         pos_fish = imagesearch()
-        time.sleep(.2)
+        time.sleep(.5)
 
     if (pos_fish == None):
         consecutive_failed_tries += 1
+        for i in range(0,2):
+            print('\a')
+            time.sleep(0.2)
+
     else:
         consecutive_failed_tries = 0
 
